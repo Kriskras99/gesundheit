@@ -5,8 +5,8 @@ use std::path::{Path, PathBuf};
 use anyhow::{Context, Result};
 
 // Protobuf version to fetch
-const PROTOBUF_VERSION: &str = "25.8";
-const PROTOBUF_TAG: &str = "v25.8";
+const PROTOBUF_VERSION: &str = "33.5";
+const PROTOBUF_TAG: &str = "v33.5";
 
 fn main() -> Result<()> {
     let out_dir = PathBuf::from(env::var("OUT_DIR").context("OUT_DIR not set")?);
@@ -67,7 +67,7 @@ FetchContent_Declare(
   GIT_SHALLOW TRUE
 )
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(ABSL_PROPAGATE_CXX_STD ON)
 set(ABSL_USE_EXTERNAL_GOOGLETEST ON)
@@ -76,6 +76,7 @@ set(ABSL_ENABLE_INSTALL ON)
 set(protobuf_BUILD_CONFORMANCE {conformance})
 set(protobuf_BUILD_TESTS OFF)
 set(protobuf_ABSL_PROVIDER "module")
+set(protobuf_LOCAL_DEPENDENCIES_ONLY OFF)
 
 # On macOS with Nix, abseil's multi-arch support conflicts with Nix's --target flags.
 # Only apply workaround if we detect Nix environment (CMAKE_C_FLAGS contains --target).

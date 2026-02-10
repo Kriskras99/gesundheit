@@ -23,10 +23,10 @@ pub mod test_messages {
             "/protobuf_test_messages.proto3.rs"
         ));
     }
-    pub mod protobuf_unittest {
-        include!(concat!(env!("OUT_DIR"), "/protobuf_unittest.rs"));
+    pub mod proto2_unittest {
+        include!(concat!(env!("OUT_DIR"), "/proto2_unittest.rs"));
     }
-    pub mod protobuf_unittest_import {
-        include!(concat!(env!("OUT_DIR"), "/protobuf_unittest_import.rs"));
+    pub mod proto2_unittest_import {
+        include!(concat!(env!("OUT_DIR"), "/proto2_unittest_import.rs"));
     }
 }

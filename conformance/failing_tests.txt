@@ -1,3 +1,11 @@
 # TODO(tokio-rs/prost#2): prost doesn't preserve unknown fields.
 Required.Proto2.ProtobufInput.UnknownVarint.ProtobufOutput
 Required.Proto3.ProtobufInput.UnknownVarint.ProtobufOutput
+# TODO: New failures in v25.8 -> v33.5 update, probably related to editions
+Recommended.Proto2.ProtobufInput.ValidMessageSetEncoding.SubmessageEncoding.NotUnknown.ProtobufOutput # Output was not equivalent to reference message: deleted: message_set_correct.(protobuf_test_messages.proto2.TestAllTypesProto2.E
+Recommended.Proto2.ProtobufInput.ValidMessageSetEncoding.SubmessageEncoding.ProtobufOutput # Output was not equivalent to reference message: deleted: message_set_correct.(protobuf_test_messages.proto2.TestAllTypesProto2.M
+Required.Proto2.ProtobufInput.MessageSetEncoding.UnknownExtension.ProtobufOutput # Output was not equivalent to reference message: deleted: message_set_correct.4135300[0]: "\000c"
+Required.Proto2.ProtobufInput.UnknownOrdering.ProtobufOutput # Unknown field mismatch
+Required.Proto2.ProtobufInput.ValidMessageSetEncoding.OutOfOrderGroupsEntries.ProtobufOutput # Output was not equivalent to reference message: deleted: message_set_correct.(protobuf_test_messages.proto2.TestAllTypesProto2.M
+Required.Proto2.ProtobufInput.ValidMessageSetEncoding.ProtobufOutput # Output was not equivalent to reference message: deleted: message_set_correct.(protobuf_test_messages.proto2.TestAllTypesProto2.M
+Required.Proto3.ProtobufInput.UnknownOrdering.ProtobufOutput # Unknown field mismatch

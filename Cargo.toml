@@ -10,7 +10,7 @@ members = [
   "tests",
   "tests-2015",
   "tests-2018",
-  "tests-2024",
+  "tests-2021",  
   "tests-no-std",
   "tests/prost-path",
   "tests/reexported-prost",
@@ -30,8 +30,8 @@ authors = [
 ]
 license = "Apache-2.0"
 repository = "https://github.com/tokio-rs/prost"
-rust-version = "1.82"
-edition = "2021"
+rust-version = "1.85"
+edition = "2024"
 
 [profile.bench]
 debug = true

@@ -1,11 +1,11 @@
 use std::fmt;
 
-use anyhow::{anyhow, bail, Error};
+use anyhow::{Error, anyhow, bail};
 use proc_macro2::{Span, TokenStream};
-use quote::{quote, ToTokens, TokenStreamExt};
-use syn::{parse_str, Expr, ExprLit, Ident, Index, Lit, LitByteStr, Meta, MetaNameValue, Path};
+use quote::{ToTokens, TokenStreamExt, quote};
+use syn::{Expr, ExprLit, Ident, Index, Lit, LitByteStr, Meta, MetaNameValue, Path, parse_str};
 
-use crate::field::{bool_attr, set_option, tag_attr, Label};
+use crate::field::{Label, bool_attr, set_option, tag_attr};
 
 /// A scalar protobuf field.
 #[derive(Clone)]

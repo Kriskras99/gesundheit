@@ -78,6 +78,6 @@ mod timestamp;
 pub use timestamp::TimestampError;
 
 mod type_url;
-pub(crate) use type_url::{type_url_for, TypeUrl};
+pub(crate) use type_url::{TypeUrl, type_url_for};
 
 mod conversions;

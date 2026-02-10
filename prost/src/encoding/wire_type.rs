@@ -1,4 +1,4 @@
-use crate::{error::DecodeErrorKind, DecodeError};
+use crate::{DecodeError, error::DecodeErrorKind};
 
 /// Represent the wire type for protobuf encoding.
 ///

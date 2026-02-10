@@ -7,11 +7,11 @@ mod scalar;
 use std::fmt;
 use std::slice;
 
-use anyhow::{bail, Error};
+use anyhow::{Error, bail};
 use proc_macro2::TokenStream;
 use quote::quote;
-use syn::punctuated::Punctuated;
 use syn::Path;
+use syn::punctuated::Punctuated;
 use syn::{Attribute, Expr, ExprLit, Lit, LitBool, LitInt, Meta, MetaNameValue, Token};
 
 #[derive(Clone)]

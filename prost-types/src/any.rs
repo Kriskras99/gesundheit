@@ -49,7 +49,7 @@ impl Name for Any {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use prost::{bytes, encoding, Message};
+    use prost::{Message, bytes, encoding};
 
     #[test]
     fn check_any_serialization() {

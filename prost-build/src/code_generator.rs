@@ -14,10 +14,10 @@ use prost_types::{
     ServiceDescriptorProto, SourceCodeInfo,
 };
 
+use crate::Config;
 use crate::ast::{Comments, Method, Service};
 use crate::context::Context;
 use crate::ident::{strip_enum_prefix, to_snake, to_upper_camel};
-use crate::Config;
 
 mod c_escaping;
 use c_escaping::unescape_c_escape_string;
@@ -1166,8 +1166,12 @@ fn build_enum_value_mappings<'a>(
 
         if let Some(old_v) = generated_names.insert(generated_variant_name.to_owned(), value.name())
         {
-            panic!("Generated enum variant names overlap: `{}` variant name to be used both by `{}` and `{}` ProtoBuf enum values",
-                generated_variant_name, old_v, value.name());
+            panic!(
+                "Generated enum variant names overlap: `{}` variant name to be used both by `{}` and `{}` ProtoBuf enum values",
+                generated_variant_name,
+                old_v,
+                value.name()
+            );
         }
 
         mappings.push(EnumVariantMapping {

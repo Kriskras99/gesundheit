@@ -407,11 +407,7 @@ fn month_to_seconds(month: u8, is_leap: bool) -> u32 {
         334 * 86400,
     ];
     let t = SECS_THROUGH_MONTH[usize::from(month - 1)];
-    if is_leap && month > 2 {
-        t + 86400
-    } else {
-        t
-    }
+    if is_leap && month > 2 { t + 86400 } else { t }
 }
 
 /// Returns the offset in seconds from the Unix epoch of the start of a year.
@@ -852,9 +848,11 @@ mod tests {
 
     #[test]
     fn test_parse_non_ascii() {
-        assert!("2021️⃣-06-15 00:01:02.123 +0800"
-            .parse::<Timestamp>()
-            .is_err());
+        assert!(
+            "2021️⃣-06-15 00:01:02.123 +0800"
+                .parse::<Timestamp>()
+                .is_err()
+        );
 
         assert!("1️⃣s".parse::<Duration>().is_err());
     }

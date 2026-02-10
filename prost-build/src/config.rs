@@ -14,15 +14,15 @@ use log::trace;
 use prost::Message;
 use prost_types::{FileDescriptorProto, FileDescriptorSet};
 
+use crate::BytesType;
+use crate::MapType;
+use crate::Module;
+use crate::ServiceGenerator;
 use crate::code_generator::CodeGenerator;
 use crate::context::Context;
 use crate::extern_paths::ExternPaths;
 use crate::message_graph::MessageGraph;
 use crate::path::PathMap;
-use crate::BytesType;
-use crate::MapType;
-use crate::Module;
-use crate::ServiceGenerator;
 
 /// Configuration options for Protobuf code generation.
 ///
@@ -970,16 +970,21 @@ impl Config {
             debug!("Running: {cmd:?}");
 
             let output = match cmd.output() {
-            Err(err) if ErrorKind::NotFound == err.kind() => return Err(Error::new(
-                err.kind(),
-                error_message_protoc_not_found()
-            )),
-            Err(err) => return Err(Error::new(
-                err.kind(),
-                format!("failed to invoke protoc (hint: https://docs.rs/prost-build/#sourcing-protoc): (path: {}): {}", &self.protoc_executable.display(), err),
-            )),
-            Ok(output) => output,
-        };
+                Err(err) if ErrorKind::NotFound == err.kind() => {
+                    return Err(Error::new(err.kind(), error_message_protoc_not_found()));
+                }
+                Err(err) => {
+                    return Err(Error::new(
+                        err.kind(),
+                        format!(
+                            "failed to invoke protoc (hint: https://docs.rs/prost-build/#sourcing-protoc): (path: {}): {}",
+                            &self.protoc_executable.display(),
+                            err
+                        ),
+                    ));
+                }
+                Ok(output) => output,
+            };
 
             if !output.status.success() {
                 return Err(Error::new(
@@ -1328,7 +1333,10 @@ mod tests {
         config.protoc_executable("src/lib.rs");
 
         let err = config.load_fds(&[""], &[""]).unwrap_err();
-        assert_starts_with!(err.to_string(), "failed to invoke protoc (hint: https://docs.rs/prost-build/#sourcing-protoc): (path: src/lib.rs): ")
+        assert_starts_with!(
+            err.to_string(),
+            "failed to invoke protoc (hint: https://docs.rs/prost-build/#sourcing-protoc): (path: src/lib.rs): "
+        )
     }
 
     #[test]

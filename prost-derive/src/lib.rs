@@ -5,15 +5,15 @@
 extern crate alloc;
 extern crate proc_macro;
 
-use anyhow::{bail, Context, Error};
+use anyhow::{Context, Error, bail};
 use itertools::Itertools;
 use proc_macro2::{Span, TokenStream};
 use quote::quote;
-use syn::{
-    punctuated::Punctuated, Data, DataEnum, DataStruct, DeriveInput, Expr, ExprLit, Fields,
-    FieldsNamed, FieldsUnnamed, Ident, Index, Variant,
-};
 use syn::{Attribute, Lit, Meta, MetaNameValue, Path, Token};
+use syn::{
+    Data, DataEnum, DataStruct, DeriveInput, Expr, ExprLit, Fields, FieldsNamed, FieldsUnnamed,
+    Ident, Index, Variant, punctuated::Punctuated,
+};
 
 mod field;
 use crate::field::Field;

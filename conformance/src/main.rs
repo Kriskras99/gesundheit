@@ -4,11 +4,11 @@ use bytes::{Buf, BufMut};
 use prost::Message;
 
 use protobuf::conformance::{
-    conformance_request, conformance_response, ConformanceRequest, ConformanceResponse, WireFormat,
+    ConformanceRequest, ConformanceResponse, WireFormat, conformance_request, conformance_response,
 };
 use protobuf::test_messages::proto2::TestAllTypesProto2;
 use protobuf::test_messages::proto3::TestAllTypesProto3;
-use tests::{roundtrip, RoundtripResult};
+use tests::{RoundtripResult, roundtrip};
 
 fn main() -> io::Result<()> {
     env_logger::init();

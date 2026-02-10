@@ -1,7 +1,7 @@
-use crate::protobuf::Value;
-use crate::value;
 use crate::String;
 use crate::Vec;
+use crate::protobuf::Value;
+use crate::value;
 use ::prost::alloc::collections::BTreeMap;
 
 impl From<value::Kind> for Value {

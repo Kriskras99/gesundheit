@@ -158,7 +158,10 @@ impl fmt::Display for DecodeErrorKind {
                 write!(f, "invalid string value: data is not UTF-8 encoded")
             }
             Self::UnexpectedTypeUrl { actual, expected } => {
-                write!(f, "unexpected type URL.type_url: expected type URL: \"{expected}\" (got: \"{actual}\")")
+                write!(
+                    f,
+                    "unexpected type URL.type_url: expected type URL: \"{expected}\" (got: \"{actual}\")"
+                )
             }
             Self::Other { description } => {
                 write!(f, "{description}")

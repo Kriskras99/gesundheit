@@ -5,8 +5,8 @@ use libfuzzer_sys::fuzz_target;
 fuzz_target!(|data: &[u8]| test_parse_duration(data));
 
 pub fn test_parse_duration(data: &[u8]) {
-    use std::str::from_utf8;
     use std::str::FromStr;
+    use std::str::from_utf8;
 
     // input must be text
     let Ok(original_text) = from_utf8(data) else {

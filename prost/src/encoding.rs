@@ -13,9 +13,9 @@ use core::str;
 
 use ::bytes::{Buf, BufMut, Bytes};
 
-use crate::error::DecodeErrorKind;
 use crate::DecodeError;
 use crate::Message;
+use crate::error::DecodeErrorKind;
 
 pub mod varint;
 pub use varint::{decode_varint, encode_varint, encoded_len_varint};
@@ -26,7 +26,7 @@ pub use length_delimiter::{
 };
 
 pub mod wire_type;
-pub use wire_type::{check_wire_type, WireType};
+pub use wire_type::{WireType, check_wire_type};
 
 /// Additional information passed to every decode/merge function.
 ///

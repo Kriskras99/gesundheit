@@ -5,11 +5,11 @@ use alloc::vec::Vec;
 
 use bytes::{Buf, BufMut};
 
-use crate::encoding::varint::{encode_varint, encoded_len_varint};
-use crate::encoding::wire_type::WireType;
-use crate::encoding::{decode_key, message, DecodeContext};
 use crate::DecodeError;
 use crate::EncodeError;
+use crate::encoding::varint::{encode_varint, encoded_len_varint};
+use crate::encoding::wire_type::WireType;
+use crate::encoding::{DecodeContext, decode_key, message};
 
 /// A Protocol Buffers message.
 pub trait Message: Send + Sync {

@@ -3,7 +3,7 @@ use std::mem;
 use bytes::Buf;
 use criterion::{Criterion, Throughput};
 use prost::encoding::varint::{decode_varint, encode_varint, encoded_len_varint};
-use rand::{rngs::StdRng, seq::SliceRandom, SeedableRng};
+use rand::{SeedableRng, rngs::StdRng, seq::SliceRandom};
 
 fn benchmark_varint(criterion: &mut Criterion, name: &str, mut values: Vec<u64>) {
     // Shuffle the values in a stable order.
